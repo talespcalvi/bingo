@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 20vh;
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+}
+
+main section#area_cartelas {
+    height: 100%;
+    width: 70%;
+    background-color: green;
+}
+
+div#header_cartelas {
+    height: 20%;
+    background-color: brown;
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#header_cartelas button {
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+#cartelas {
+
+}
+
+#area_jogo {
+    height: 100%;
+    width: 30%;
+    background-color: lightsteelblue;
+}
+
+div#header_jogo {
+    height: 20%;
+    background-color: yellow;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#header_jogo h2 {
+    padding-bottom: 10px;
+}
+
+#header_jogo button {
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    height: 5vh;
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
