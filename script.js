@@ -40,14 +40,18 @@ function gerarCartela(){
     console.log(jogadores)
 }
 
-function desenharCartela(){
+function reiniciarJogo(){
+    jogadores = []
+}
 
-    var div_header_cartelas = document.querySelector('header_cartelas')
+function desenharCartela(nome, cartela){
+
+    var div_cartelas = document.querySelector('#cartelas')
 
     var h4 = document.createElement('h4');
     h4.innerText = 'Nome do Jogador';
 
-    div_header_cartelas.appendChild(h4);
+    div_cartelas.appendChild(h4);
 
     var table = document.createElement('table');
     var thead = document.createElement('thead');
@@ -86,8 +90,7 @@ function desenharCartela(){
 
     table.appendChild(thead);
     table.appendChild(tbody);
-    div_header_cartelas.appendChild(table);
-    div_header_cartelas.appendChild(div_header_cartelas);
+    div_cartelas.appendChild(table);
 
 }
 }
