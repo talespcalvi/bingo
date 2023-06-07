@@ -59,6 +59,7 @@ div#cartelas {
     padding-top: 20px;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 main section#area_jogo {
