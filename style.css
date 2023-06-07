@@ -1,82 +1,99 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-header {
-    height: 20vh;
-    background-color: aquamarine;
+header{
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 15vh;
+    background-color: aquamarine;
 }
 
 main {
-    height: 75vh;
+    height: 80vh;
     display: flex;
     flex-direction: row;
 }
 
-main section#area_cartelas {
-    height: 100%;
+main section#area_cartelas{
     width: 70%;
-    background-color: green;
+    height: 100%;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
 }
 
 div#header_cartelas {
-    height: 20%;
-    background-color: brown;
+    height: 18%;
     width: 100%;
+    background-color: blue;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
 }
 
-#header_cartelas button {
-    border-radius: 10px;
-    width: 100px;
+div#header_cartelas button {
     height: 40px;
+    width: 100px;
+    background-color: chartreuse;
+    font-weight: bold;
+    color: black;
+    border-radius: 10px;
 }
 
-#cartelas {
-
+div#cartelas {
+    display: flex;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
-#area_jogo {
+main section#area_jogo {
     height: 100%;
     width: 30%;
-    background-color: lightsteelblue;
-}
-
-div#header_jogo {
-    height: 20%;
-    background-color: yellow;
-    width: 100%;
+    background-color: green;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
-#header_jogo h2 {
-    padding-bottom: 10px;
-}
-
-#header_jogo button {
-    border-radius: 10px;
-    width: 100px;
-    height: 40px;
-}
-
-footer {
+div#header_jogo {
     width: 100%;
+    height: 18%;
+    background-color: coral;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+    flex-direction: center;
+}
+
+div#header_jogo button {
+    height: 40px;
+    width: 100px;
+    background-color: chartreuse;
+    font-weight: bold;
+    color: black;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+section#numeros h2{
+    margin-top: 20px;
+}
+
+footer{
     position: fixed;
     bottom: 0px;
     height: 5vh;
-    background-color: aquamarine;
     display: flex;
     align-items: center;
+    width: 100%;
     justify-content: center;
+    background-color: aqua;
 }
