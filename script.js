@@ -49,7 +49,7 @@ function desenharCartela(nome, cartela){
     var div_cartelas = document.querySelector('#cartelas')
 
     var h4 = document.createElement('h4');
-    h4.innerText = 'Nome do Jogador';
+    h4.innerText = nome;
 
     div_cartelas.appendChild(h4);
 
