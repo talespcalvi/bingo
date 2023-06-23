@@ -49,13 +49,21 @@ div#header_cartelas {
 }
 
 div#cartelas {
-    height: 82%;
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    flex-direction: row;
-}
+    justify-content: center;
+  }
+  
+  div.cartela-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(214, 250, 239);
+    border-radius: 5px;
+  }
+  
 
 div#cartelas table {
     border-collapse: collapse;
@@ -95,26 +103,17 @@ div#cartelas table td.selected {
 
 div#cartelas table td.marcado {
     background-color: rgb(226, 226, 67);
-  }
+}
   
-  div#cartelas table.vencedora {
+div#cartelas table.vencedora {
     border: 2px solid red;
-  }
-  
+}
   
 @media screen and (max-width: 768px) {
-div#cartelas {
-      flex-direction: column;
-   }
-}
-
-div#cartelas {
-    display: flex;
-    padding-top: 20px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
+    div#cartelas {
+          flex-direction: row;
+    }
+}  
 
 main section#area_jogo {
     height: 100%;
