@@ -10,7 +10,7 @@ function gerarNumerosAleatorios(quantidade, min, max){
     var numeros = [];
 
     while(numeros.length < quantidade){
-        var aleatorio = Math.floor(Math.random()*(max - min) + min);
+        var aleatorio = Math.floor(Math.random()*(max - min + 1) + min);
         
         if(!numeros.includes(aleatorio)){
             numeros.push(aleatorio);
@@ -40,9 +40,11 @@ function gerarCartela(){
     console.log(jogadores)
 }
 
-function reiniciarJogo(){
-    jogadores = []
-}
+function reiniciarJogo() {
+    // Recarrega a página
+    location.reload();
+  }
+  
 
 function desenharCartela(nome, cartela){
 
@@ -79,18 +81,136 @@ function desenharCartela(nome, cartela){
         var td = document.createElement('td');
         if(i == 2 && j == 2){
             td.innerText = "X";
-            tr.appendChild(td);
+            td.classList.add('x');
         }else{
             td.innerText = cartela[j][i]
-            tr.appendChild(td);
-            td.innerText = "X"
         }
+        tr.appendChild(td);
+    }
     tbody.appendChild(tr);
+   }
+   table.appendChild(thead);
+   table.appendChild(tbody);
+   div_cartelas.appendChild(table);
+}
+
+function jogar() {
+    var cartelas = document.querySelectorAll('#cartelas table');
+    if (cartelas.length < 2) {
+      alert("É necessário ter pelo menos duas tabelas geradas.");
+      return;
+    }
+  
+    var divAreaJogo = document.querySelector('#area_jogo');
+  
+    divAreaJogo.innerHTML = ''; // Limpar a seção antes de adicionar os números gerados
+  
+    var h2 = document.createElement('h2');
+    h2.innerText = 'Jogo';
+  
+    var ul = document.querySelector('#area_jogo ul');
+    if (!ul) {
+       ul = document.createElement('ul');
+       ul.classList.add('numeros-gerados');
+       divAreaJogo.appendChild(h2);
+       divAreaJogo.appendChild(ul);
     }
 
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    div_cartelas.appendChild(table);
+  
+    var numerosGerados = [];
+    var contadorNumeros = 0;
+  
+    var intervalo = setInterval(function() {
+      if (verificarVencedor(cartelas) || contadorNumeros >= 75) {
+        clearInterval(intervalo);
+        return;
+      }
+  
+      var numeroGerado = gerarNumeroAleatorio(1, 75);
+  
+      while (numerosGerados.includes(numeroGerado)) {
+        numeroGerado = gerarNumeroAleatorio(1, 75);
+      }
+  
+      numerosGerados.push(numeroGerado);
+      contadorNumeros++;
+  
+      var li = document.createElement('li');
+      li.innerText = numeroGerado;
+      ul.appendChild(li);
 
-}
-}
+  
+      if (marcarNumero(numeroGerado, cartelas)) {
+        li.classList.add('marcado');
+      }
+  
+      ul.appendChild(li);
+    }, 1000); // Intervalo de 1 segundo entre os números gerados
+  }
+  
+  function marcarNumero(numero, cartelas) {
+    var marcado = false;
+    var temVencedor = false;
+  
+    for (var i = 0; i < cartelas.length; i++) {
+      var cartela = cartelas[i];
+      var tds = Array.from(cartela.getElementsByTagName('td')); // Converter para um array
+  
+      for (var j = 0; j < tds.length; j++) {
+        if (tds[j].innerText === numero.toString()) {
+          tds[j].classList.toggle('marcado');
+          marcado = true;
+          break; // Sai do loop interno quando o número é marcado
+        }
+      }
+  
+      if (verificarVencedor(cartela)) {
+        cartela.classList.add('vencedora');
+        temVencedor = true;
+        break; // Sai do loop externo quando um vencedor é encontrado
+      }
+    }
+  
+    if (temVencedor) {
+      alert('Temos um vencedor!');
+    }
+  
+    return marcado;
+  }
+  
+  
+  
+  function verificarVencedor(cartelas) {
+    var todosMarcados = true;
+  
+    cartelas.forEach(function(cartela) {
+      var tds = cartela.getElementsByTagName('td');
+  
+      for (var i = 0; i < tds.length; i++) {
+        if (!tds[i].classList.contains('marcado')) {
+          todosMarcados = false;
+          break;
+        }
+      }
+  
+      if (todosMarcados) {
+        alert('Temos um vencedor!');
+        return true; // Retorna true se todos os números da cartela foram marcados
+      }
+    });
+  
+    return false;
+  }
+  
+  function gerarNumeroAleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  
+  
+  
+  
+
+
+
+
+  
